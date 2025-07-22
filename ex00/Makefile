@@ -4,7 +4,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -std=c++98
 
-SRC = Megaphone.cpp
+SRC = MegaPhone.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
