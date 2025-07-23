@@ -7,6 +7,7 @@
 class PhoneBook {
 
 public:
+	Contact Contact[8];
 	PhoneBook(void);
 	~PhoneBook(void);
 
