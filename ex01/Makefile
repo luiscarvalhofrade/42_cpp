@@ -4,8 +4,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -std=c++98
 
-SRC =	PhoneBook.cpp \
-		Contact.cpp
+SRC =	Contact.cpp \
+		PhoneBook.cpp \
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

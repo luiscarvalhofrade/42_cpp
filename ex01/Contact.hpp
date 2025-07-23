@@ -1,13 +1,19 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+#include <iostream>
+
 class Contact {
 private:
-	char	first_name;
-	char	last_name;
-	int		phone;
+	std::string	_first_name;
+	std::string	_last_name;
+	int		_phone_number;
 public:
-	Contact();
+	Contact(void);
+	~Contact( void );
+
+	void	getData(void);
+	void	setData(void);
 };
 
 #endif
