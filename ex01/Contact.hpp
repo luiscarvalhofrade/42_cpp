@@ -12,8 +12,12 @@ public:
 	Contact(void);
 	~Contact( void );
 
-	void	getData(void);
-	void	setData(void);
+	void		getData(void);
+	void		getFirstName(void);
+	void		getLastName(void);
+	std::string	setFirstName(void);
+	std::string setLastName(void);
+	int			setPhoneNumber(void);
 };
 
 #endif

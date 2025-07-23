@@ -5,15 +5,16 @@
 # include <iostream>
 
 class PhoneBook {
+private:
+	Contact contact[8];
 
 public:
-	Contact Contact[8];
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	void	add(void);
-	void	search(int	index, std::string fn, std::string ln);
-	void	exit(void);
+	int	add(void);
+	int	search(int index, std::string fn, std::string ln);
+	int	exit(void);
 };
 
 #endif
