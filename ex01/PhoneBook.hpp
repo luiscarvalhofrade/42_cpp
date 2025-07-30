@@ -13,9 +13,10 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	int	add(void);
-	int	search(int index, std::string name);
-	int	exit(void);
+	void	getPhoneList(void);
+	int		add(void);
+	int		search(int index, std::string name);
+	int		exit(void);
 };
 
 #endif
