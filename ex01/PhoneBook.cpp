@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:08:45 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/07/30 16:48:33 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:36:32 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	PhoneBook::add(void) {
 	
 
 	contact[_contact_count].setContact(fn, ln, pn);
-	std::cout << "Phone added succesfully at index " << _contact_count << "!!!" << std::endl;
+	std::cout << "Phone added succesfully at index " << ((_contact_count + 1) % 8) << "!!!" << std::endl;
 	contact[_contact_count].getData();
     _contact_count = (_contact_count + 1) % 8;
 	return (0);

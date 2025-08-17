@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:13:29 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/07/30 16:32:03 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:38:53 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int main(void) {
 				std::cout << "====== ====== =====" << std::endl;
 				my_pb.search(-1, name);
 			}
-
+			else
+				std::cout << "Option not found, try again" << std::endl;
 		}
 		else if (option == "exit"  || option == "3")
 			break;
