@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:08:45 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/08/17 17:36:32 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:15:31 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	PhoneBook::add(void) {
 	std::string	ln;
 	std::string	pn;
 
+	std::cin.ignore();
 	do {
         fn = contact[_contact_count].setFirstName();
         if (fn.empty()) {

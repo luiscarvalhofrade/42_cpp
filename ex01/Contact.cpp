@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:43:37 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/08/19 15:55:04 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:04:50 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ std::string	Contact::setFirstName(void) {
 	std::string first_name;
 
 	std::cout << "Enter first name: ";
-	std::cin.ignore();
 	std::getline(std::cin, first_name);
 	return (first_name);
 }
