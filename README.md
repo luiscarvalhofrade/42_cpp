@@ -1,2 +1,2 @@
-# cpp_00
+# cpp
 Starting study of OOD with cpp
