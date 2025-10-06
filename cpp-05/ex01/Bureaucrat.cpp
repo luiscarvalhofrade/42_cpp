@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:09 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 12:02:30 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/06 15:16:43 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,20 @@ void    Bureaucrat::incrementGrade(void) {
     _grade--;
 }
 
-void    Bureaucrat::incrementGrade(void) {
+void    Bureaucrat::decrementGrade(void) {
     if (this->_grade >= LOWEST_GRADE)
         throw GradeTooLowException();
-    _grade--;
+    _grade++;
+}
+
+void    Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << this->_name << " signed" << form.getName() << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cout << this->_name << " couldn't sign " << form.getName() << e.what() << std::endl;
+    }
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw() {

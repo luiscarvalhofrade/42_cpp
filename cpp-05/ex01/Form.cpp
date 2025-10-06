@@ -6,26 +6,27 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:26 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/09/15 17:56:05 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/06 15:51:34 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("undefined form"), _grade(150) {
+Form::Form(void) : _name("undefined form"), _gradeToSign(150), _gradeToExec(150) {
     std::cout << "Default Form constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int grade) : _name(name) {
-    if (grade > LOWEST_GRADE)
+Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _gradeToExec(gradeToExec),
+    _gradeToSign(gradeToSign), _signed(false) {
+    if (gradeToSign > LOWEST_GRADE || gradeToExec > LOWEST_GRADE)
         throw GradeTooLowException();
-    else if (grade < HIGHEST_GRADE)
+    else if (gradeToSign < HIGHEST_GRADE || gradeToExec < HIGHEST_GRADE)
         throw GradeTooHighException();
-    _grade = grade;
-    std::cout << "Form " << this->_name << " with grade:" <<  this->_grade << "has been created!!!" << std::endl;
+    std::cout << "Form " << this->_name << " with grade to be signed:" <<  this->_gradeToSign << "has been created!!!";
+    std::cout << " and grade to be executed: " << this->_gradeToExec << std::endl;
 }
 
-Form::Form(const Form& other) : _name(other._name), _grade(other._grade) {
+Form::Form(const Form& other) : _name(other._name), _gradeToExec(other._gradeToExec),  _gradeToSign(other._gradeToSign) {
     std::cout << "Form copy has been made" << std::endl;
 }
 
@@ -36,10 +37,43 @@ Form::~Form(void) {
 Form& Form::operator=(const Form& other) {
     std::cout << "Form copy assingment operator has been called" << std::endl;
     if (this != &other)
-        _grade = other.getGrade();
+    {
+        _signed = other.isSigned();
+    }
     return *this;
 }
 
 const std::string Form::getName(void) const {
     return this->_name;
+}
+
+int Form::getGradeToExec(void) const {
+    return this->_gradeToExec;
+}
+
+int Form::getGradeToSign(void) const {
+    return this->_gradeToSign;
+}
+
+bool Form::isSigned(void) const {
+    return (this->_signed);
+}
+
+bool    Form::beSigned(Bureaucrat &signner) {
+    if (signner.getGrade() <= this->_gradeToSign)
+    {
+        this->_signed = true;
+        return (true);
+    }
+    return (false);
+}
+
+std::ostream&	operator<<(std::ostream& out, const Form& f) {
+	out << f.getName();
+	if (f.isSigned())
+		out << " is signed. ";
+	else
+		out << " is unsigned. ";
+	out << "Grade to sign: " << f.getGradeToSign() << ". Grade to Execute: " << f.getGradeToExec();
+	return out;
 }

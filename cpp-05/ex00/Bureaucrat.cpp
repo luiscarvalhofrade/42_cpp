@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:24:08 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 12:03:22 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/06 15:17:04 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void    Bureaucrat::incrementGrade(void) {
     _grade--;
 }
 
-void    Bureaucrat::incrementGrade(void) {
+void    Bureaucrat::decrementGrade(void) {
     if (this->_grade >= LOWEST_GRADE)
         throw GradeTooLowException();
-    _grade--;
+    _grade++;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw() {
