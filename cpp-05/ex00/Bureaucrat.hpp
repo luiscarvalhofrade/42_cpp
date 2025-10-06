@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 14:32:55 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/09/15 16:44:24 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/06 12:03:33 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ class Bureaucrat {
                 virtual const char* what() const throw();
         };
 };
+
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b);
+
 
 #endif
