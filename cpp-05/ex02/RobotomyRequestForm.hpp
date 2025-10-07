@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:25:25 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 18:03:55 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:31:17 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
+	private:
+		void drillingNoise(void) const;
+		bool randomRobotomyFactor() const;
+
     public:
         RobotomyRequestForm(void);
         RobotomyRequestForm(const std::string target);
@@ -23,7 +27,7 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
         ~RobotomyRequestForm(void);
 
-        void executeAction(void) const;
+		void executeAction(const Bureaucrat& bureaucrat) const;
 };
 
 #endif

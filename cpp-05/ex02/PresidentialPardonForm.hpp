@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:25:36 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 17:55:32 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 12:52:22 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PresidentialPardonForm : public AForm {
         PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
         ~PresidentialPardonForm(void);
 
-        void executeAction(void) const;
+        void executeAction(const Bureaucrat& bureaucrat) const;
 };
 
 #endif

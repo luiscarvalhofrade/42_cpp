@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:25:39 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 18:28:03 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 12:55:09 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
     std::cout << "PresidentialPardonForm has been destroyed!!!" << std::endl;
 }
 
-void PresidentialPardonForm::executeAction(void)  const {
+void PresidentialPardonForm::executeAction(const Bureaucrat& bureaucrat) const {
+	this->FormRequirements(bureaucrat);
     std::cout << this->getTarget() << " has been pardoned by Zaphoo Beeblebrox" << std::endl;
 }

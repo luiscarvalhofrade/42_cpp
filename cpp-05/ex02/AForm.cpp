@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:26 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 18:55:08 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 12:47:55 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ AForm& AForm::operator=(const AForm& other) {
     std::cout << "AForm copy assingment operator has been called" << std::endl;
     if (this != &other)
         _signed = other.isSigned();
-    return *this;
+    return (*this);
 }
 
 const std::string AForm::getName(void) const {
-    return this->_name;
+    return (this->_name);
 }
 
 int AForm::getGradeToExec(void) const {
-    return this->_gradeToExec;
+    return (this->_gradeToExec);
 }
 
 int AForm::getGradeToSign(void) const {
-    return this->_gradeToSign;
+    return (this->_gradeToSign);
 }
 
 bool AForm::isSigned(void) const {
@@ -68,6 +68,13 @@ bool    AForm::beSigned(Bureaucrat &signner) {
         return (true);
     }
     return (false);
+}
+
+void AForm::FormRequirements(Bureaucrat const &executor) const {
+    if (!this->_signed)
+        throw AForm::FormNotSigned();
+    if (executor.getGrade() > this->_gradeToExec)
+        throw AForm::GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& out, const AForm& f) {

@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:25:33 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 17:51:39 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:21:40 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public AForm {
+	private:
+		void drawAsciiTree(std::ofstream &outFile) const;
+
     public:
         ShrubberyCreationForm(void);
         ShrubberyCreationForm(const std::string target);
@@ -23,7 +27,12 @@ class ShrubberyCreationForm : public AForm {
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm(void);
 
-        void executeAction(void) const;
+        void executeAction(const Bureaucrat& bureaucrat)  const;
+
+		class FileException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 #endif
