@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:25:30 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/07 13:23:29 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 16:23:42 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("
     std::cout << "Default ShrubberyCreationForm constructor called, with " << target << " as target!!!" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm("ShrubberyCreationForm", 145, 137, other.getTarget()) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other) {
     std::cout << "ShrubberyCreationForm copy has been made" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
     std::cout << "ShrubberyCreationForm copy assignment operator has been called" << std::endl;
+	if (this != &other)
+		AForm::operator=(other);
+	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
@@ -33,13 +36,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 }
 
 void ShrubberyCreationForm::drawAsciiTree(std::ofstream &outFile) const {
-	outFile << "      *****      " << std::endl;
-	outFile << "     *******     " << std::endl;
-	outFile << "    *********    " << std::endl;
-	outFile << "     *******     " << std::endl;
-	outFile << "      *****      " << std::endl;
-	outFile << "       |||       " << std::endl;
-	outFile << "       |||       " << std::endl;
+	outFile << "      ***O**       " << std::endl;
+	outFile << "     **8*****      " << std::endl;
+	outFile << "    ******I***     " << std::endl;
+	outFile << "     ***O****      " << std::endl;
+	outFile << "      *****        " << std::endl;
+	outFile << "       |||         " << std::endl;
+	outFile << "       |O|         " << std::endl;
+	outFile << "       |||         " << std::endl;
 }
 
 const char* ShrubberyCreationForm::FileException::what() const throw() {
