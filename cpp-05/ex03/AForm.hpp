@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:55:04 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/07 15:38:33 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/10/07 16:47:58 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm {
         static const int HIGHEST_GRADE = 1;
         static const int LOWEST_GRADE = 150;
 	protected:
-		void executeAction(const Bureaucrat& bureaucrat) const;
+		virtual void executeAction(const Bureaucrat& bureaucrat) const = 0;
 
     public:
         AForm(void);
@@ -39,7 +39,7 @@ class AForm {
 
         const std::string getName(void) const;
         const std::string getTarget(void) const;
-        virtual bool isSigned(void) const = 0;
+        bool isSigned(void) const;
         int getGradeToSign(void) const;
         int getGradeToExec(void) const;
 
