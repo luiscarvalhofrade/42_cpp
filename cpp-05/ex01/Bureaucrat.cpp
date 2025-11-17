@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:09 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 15:16:43 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:17:14 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void    Bureaucrat::decrementGrade(void) {
     _grade++;
 }
 
-void    Bureaucrat::signForm(Form& form) {
+void    Bureaucrat::signForm(Form& form) const {
     try {
         form.beSigned(*this);
         std::cout << this->_name << " signed" << form.getName() << std::endl;
@@ -80,5 +80,10 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw() {
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b) {
 	out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+	return out;
+}
+
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat* b) {
+	out << b->getName() << ", bureaucrat grade " << b->getGrade() << ".";
 	return out;
 }

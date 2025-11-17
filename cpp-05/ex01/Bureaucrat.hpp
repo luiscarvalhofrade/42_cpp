@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:19 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 15:15:53 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:14:29 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <exception>
 # include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -32,13 +34,6 @@ class Bureaucrat {
 
         Bureaucrat& operator=(const Bureaucrat& other);
         
-        const std::string getName(void) const;
-        int getGrade(void) const;
-        void incrementGrade(void);
-        void decrementGrade(void);
-
-        void signForm(Form& form);
-
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char* what() const throw();
@@ -48,8 +43,18 @@ class Bureaucrat {
             public:
                 virtual const char* what() const throw();
         };
+        
+        const std::string getName(void) const;
+        int getGrade(void) const;
+        void incrementGrade(void);
+        void decrementGrade(void);
+
+        void signForm(Form& form) const;
+
+        
 };
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b);
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat* b);
 
 #endif

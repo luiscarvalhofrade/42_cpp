@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:26 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/07 12:47:55 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:49:47 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,16 @@ std::ostream&	operator<<(std::ostream& out, const AForm& f) {
 		out << " is unsigned. ";
 	out << "Grade to sign: " << f.getGradeToSign() << ". Grade to Execute: " << f.getGradeToExec();
 	return out;
+}
+
+const char* AForm::GradeTooHighException::what() const throw() {
+    return "AForm grade is too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw() {
+    return "AForm grade is too low!";
+}
+
+const char* AForm::FormNotSigned::what() const throw() {
+    return "AForm is not signed!";
 }

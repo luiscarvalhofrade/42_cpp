@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:26 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/06 15:51:34 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:20:26 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,21 @@ bool Form::isSigned(void) const {
     return (this->_signed);
 }
 
-bool    Form::beSigned(Bureaucrat &signner) {
+bool    Form::beSigned(const Bureaucrat &signner) {
     if (signner.getGrade() <= this->_gradeToSign)
     {
         this->_signed = true;
         return (true);
     }
-    return (false);
+    throw (GradeTooLowException());
+}
+
+const char *Form::GradeTooHighException::what() const throw() {
+	return ("Bureaucrat grade too high");
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+	return ("Bureaucrat grade too low");
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& f) {
@@ -75,5 +83,15 @@ std::ostream&	operator<<(std::ostream& out, const Form& f) {
 	else
 		out << " is unsigned. ";
 	out << "Grade to sign: " << f.getGradeToSign() << ". Grade to Execute: " << f.getGradeToExec();
+	return out;
+}
+
+std::ostream&	operator<<(std::ostream& out, const Form* f) {
+	out << f->getName();
+	if (f->isSigned())
+		out << " is signed. ";
+	else
+		out << " is unsigned. ";
+	out << "Grade to sign: " << f->getGradeToSign() << ". Grade to Execute: " << f->getGradeToExec();
 	return out;
 }

@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:54:19 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/10/07 13:38:01 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:49:23 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <exception>
 # include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
     private:
