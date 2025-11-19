@@ -6,7 +6,7 @@
 /*   By: luide-ca <luide-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:46:30 by luide-ca          #+#    #+#             */
-/*   Updated: 2025/11/11 14:21:31 by luide-ca         ###   ########.fr       */
+/*   Updated: 2025/11/19 13:55:15 by luide-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScalarConverter {
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& other);
 		ScalarConverter& operator=(const ScalarConverter& other);
+
 		~ScalarConverter();
 
 		static bool	isPseudoLiteral(const std::string &input);
